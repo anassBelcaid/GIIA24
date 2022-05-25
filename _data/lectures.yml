@@ -140,7 +140,7 @@
     <strong> Shell programming II</strong>
   slides: 
   video: 
-  notes: /lectures/shellProg2/
+  notes: "https://anassbelcaid.github.io/GIIA24/shellProg2/"
   readings:
     - <a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)" target="_blank"> Pipelines </a>
     - <a href="https://ostechnix.com/the-grep-command-tutorial-with-examples-for-beginners/"> Tutorial on grep </a>
@@ -176,6 +176,28 @@
 
 
   homework:
-  - <a href="https://anassbelcaid.github.io/GIIA24/bash02/"> Shell scripting II. </a>
-    # - <a href="/bash02"> Shell scritping II. </a>
+    -
+
+- date: F 01/06
+  lecturer:
+  title: >
+    <strong> Stream editor (Sed)</strong>
+  slides: 
+  video: 
+  notes: /sed/
+  readings:
+    - <a href="https://www.grymoire.com/Unix/Sed.html" > Tutorial Sed </a>
+    - <a href="https://www.thegeekstuff.com/2009/09/unix-sed-tutorial-printing-file-lines-using-address-and-patterns/"> Geek Stuff </a>
+    - <a href="https://www.tutorialspoint.com/sed/index.htm"> Tutorial Point </a>
+
+  topics:
+    - Printing
+    - Deletion
+    - Substitution
+
+
+
+
+  homework:
+    -
 - 

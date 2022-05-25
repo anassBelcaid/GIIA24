@@ -3,7 +3,7 @@ layout:  post
 title: Shell programming II
 description:  A Deeper look for more advanced commands
 date: 2022/05/01
-permalink: /lectures/shellProg2/ 
+permalink: /shellProg2/ 
 lecturers:
   - name:  Anass Belcaid
 ---
