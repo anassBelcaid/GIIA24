@@ -184,7 +184,7 @@
     <strong> Stream editor (Sed)</strong>
   slides: 
   video: 
-  notes: /sed/
+  notes: "https://anassbelcaid.github.io/GIIA24/sed/"
   readings:
     - <a href="https://www.grymoire.com/Unix/Sed.html" > Tutorial Sed </a>
     - <a href="https://www.thegeekstuff.com/2009/09/unix-sed-tutorial-printing-file-lines-using-address-and-patterns/"> Geek Stuff </a>
