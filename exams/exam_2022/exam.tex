@@ -1,0 +1,155 @@
+\documentclass[palatino,code]{ensaexam}
+\usepackage{minted}
+\begin{document}
+\ModuleName{Linux et Logiciel libre}
+\ExamCode{GIIA423}
+\ExamPeriod{Spring 2022}
+\TimeAllowed{90}
+\Logo{
+\begin{center}
+  \includegraphics[width=3cm, height=3cm]{ENSA-SAFI.png}
+\end{center}
+}
+\Instructions{
+  \begin{itemize}
+    \item Vous avez {\bf\TheTimeAllowed\; minutes}. 
+    \item Verifier que vous disposez de toutes les pages. 
+    \item L'échange d'outils est strictement \textbf{interdit}.
+  \end{itemize}
+  
+}
+\MakeHeading
+\vspace*{1cm}
+
+ \begin{questions}
+
+   % Question script with for {{{ %
+   \titledquestion{Scripting I (**)}
+   Dans ce problème, on se propose d'écrire un \textbf{script} qui vérifie
+   l'état d'un dossier et affiche certains statistiques sur ces fichiers
+   executables.\\
+
+   \begin{itemize}
+     \item Pour les trois questions suivantes, vous pouvez écrire un
+       \textbf{seul} script qui regroupe les trois réponses.\\[4pt]
+   \end{itemize}
+
+   \begin{parts}
+     \part[2] Écrire un le script \textbf{script.sh} qui vérifie si un dossier
+     donné comme premier \textbf{argument} existe. Si non le script doit afficher un
+     message d'erreur. 
+     \part[1] Modifier votre script, pour qu'il affiche le nombre de fichiers
+     \textbf{exécutables} qui figure dans ce dossier. 
+     \part[2] Le script maintenant doit afficher tous ces fichiers
+     \textbf{executables} triés selon le nombre du mot \textbf{echo} qu'il
+     contiennent.
+   \end{parts}
+   \vspace*{.5cm}
+   % }}} Question script with for %
+% Data Wrangling {{{ %
+\titledquestion{Manipulation Donnes(**)}
+Pour cet exercice, vous devez utiliser votre maitrise de la commande
+\textbf{grep} pour afficher des statistiques de votre dictionnaire qui figure
+dans \textbf{/usr/share/dict/words}
+
+\begin{parts}
+  \part[2] Donner une commande, qui calcule le nombre de mots qui contient au
+  moins trois lettres \textbf{a} ( qui ne sont pas forcement successives).
+  \part[3] Pour ces mots, on cherche a identifier les \textbf{deux Derniers
+  caractères} de chaque mots.
+  \begin{itemize}
+    \item Ecrire alors une fonction qui affiche les trois deux lettres les plus
+      répondues. Par exemple votre fonction doit afficher:
+
+      \begin{minted}{bash}
+       101 an
+       63 ns
+       54 as
+      \end{minted}
+
+      Identifiant que $\mathbf{101}$ mots se termine par \textbf{an}, et
+      $\mathbf{63}$ se terminent par \textbf{ns}.
+  \end{itemize}
+  \part[3] Comme vous avez appris, un fichier \textbf{HTML}, est basé sur la
+  syntaxe des \textbf{tag}.  Comme exemple:
+
+      \begin{minted}{html}
+<article>
+<title>About the Web</title>
+
+<para>
+This is an article about the World Wide Web.
+The World Wide Web is a collection of documents that are linked to
+one another. The Web is <emphasis>not</emphasis> the same as the
+Internet. The Internet is a world-wide network of networks, and it
+does far more than simply serve up Web pages.
+</para>
+\end{minted}
+\vspace*{.5cm}
+\begin{itemize}
+  \item Écrire une commande, qui supprime tous ces les \textbf{tags} d'un
+    fichier donné.
+\end{itemize}
+
+\end{parts}
+\vspace*{1cm}
+% }}} Data Wrangling %
+% Fold description {{{ %
+  \titledquestion{Luhn (***)}
+  Dans cet exercice, on doit écrire un script qui détermine si un nombre est
+  valide ou non selon la formule de \textbf{Luhn}. C'est un algorithme de
+  hachage simple qui est utilise dans une variétés de cartes de crédits
+  sociales.
+
+  \begin{parts}
+    \part[7] Vous devez écrire un script qui vérifie si le nombre en argument est
+    valide ou non.
+  \end{parts}
+
+  Pour valider un nombre vous devez:
+
+  \begin{itemize}
+    \item Détruire tous les espaces du code, pour obtenir que des chiffres. Par
+      exemple on suppose qu'on as:
+      \begin{minted}{bash}
+       4539 3195 0343 6467 
+      \end{minted}
+    \item Maintenant vous devez doubler chaque chiffre en commencent par la
+      droite. Par exemple pour note nombre,  les chiffres qui \textbf{ne sont
+      pas marqués} par \textbf{\_} seront doublés.  
+
+      \begin{minted}{bash}
+       4_3_ 3_9_ 0_4_ 6_6_
+      \end{minted}
+      Si en doublant la valeur dépasse 9, on retranche alors 9 du résultat.
+      Ainsi on trouve la valeur:
+      \begin{minted}{bash}
+       8569 6195 0383 3437
+      \end{minted}
+      Vous remarquez que le premier $4$ est remplacé par $4\times 2 = 8$, Pour
+      le $6$, on obtient $6\times2 = 12$ et puisque c'est supérieur a $9$ on
+      retranche 9. On obtient alors: $12 - 9 = 3$.
+    \item Pour l'étape finale on calcule la somme de chiffres on verifie si
+      cette somme est divisible par $10$.
+      \begin{minted}{bash}
+8+5+6+9+6+1+9+5+0+3+8+3+3+4+3+7 = 80
+      \end{minted}
+      Ainsi ce nombre est \textbf{valide}.
+  \end{itemize}
+  
+  Pour illustrer ce mécanisme, on vous montre un deuxième nombre:
+  \begin{enumerate}
+    \item valeur initiale $8273\;1232\;7352\;0569$.
+    \item Doubler les chiffres $7253\;2262\;5312\;0539$
+    \item Calculer la somme $7+2+5+3+2+2+6+2+5+3+1+2+0+5+3+9 = 57$
+    \item Cette somme n'est pas divisible par $10$, alors le nombre n'est pas
+      valide.
+  \end{enumerate}
+% }}} Fold description %
+
+  
+ \end{questions}
+ 
+ 
+\end{document}
+
